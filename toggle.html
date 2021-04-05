@@ -1,0 +1,72 @@
+<html>
+	<head>
+		<meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Toggle</title>
+	</head>
+	<style>
+		
+		.rect {
+			position: absolute;
+			background-color: #ccc;
+			width: 80px;
+			height: 30px;
+			border-radius: 20px;
+		}
+		
+		.circle {
+			margin-left: 2px;
+			position: absolute;
+			width: 40px;
+			height: 28px;
+			border-radius: 20px;
+			background-color: white;
+			border: none;
+		}
+		
+		
+		@keyframes moveRight {
+			from {
+				left: 10px;
+			} to {
+				left: 45px;
+			}
+		}
+
+		@keyframes moveLeft {
+			from {
+				left: 45px;
+			} to {
+				left: 10px;
+			}
+		}
+		
+	</style>
+	<body>
+		<div class="container">
+			<div class="rect">
+			</div>
+			<button class="circle" onclick="move()">Off</button>
+		</div>
+	</body>
+
+<script>
+		var movedRight = false;
+		let circle = document.querySelector(".circle");
+		let rect = document.querySelector(".rect");
+
+		function move() {
+			if (movedRight) {
+				circle.style.animation = "moveLeft 1s forwards";
+				circle.textContent = "OFF"
+				rect.style.backgroundColor = "#ccc";
+				movedRight = false;
+			} else {
+				circle.style.animation = "moveRight 1s forwards";
+				circle.textContent = "ON"
+				rect.style.backgroundColor = "#2196F3"
+				movedRight = true;
+			}
+		}			
+	</script> 
+</html>
